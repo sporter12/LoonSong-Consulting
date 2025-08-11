@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LoonSong Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --teal-800:#396a6f;
+      --teal-700:#467b81;
+      --teal-600:#5c9499;
+      --teal-500:#79aeb3;
+      --teal-300:#b7d3d6;
+      --ink:#223033;
+      --muted:#4a6165;
+      --surface:#e9f1ee;
+      --white:#ffffff;
+      --shadow: 0 10px 25px rgba(0,0,0,.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:#f6f8f7;
+      line-height:1.6;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index: 20;
+      background: linear-gradient(180deg, var(--teal-500), var(--teal-500));
+      color:var(--white);
+      box-shadow: 0 1px 0 rgba(0,0,0,.08);
+    }
+    .nav{
+      max-width:1100px; margin:0 auto; padding:18px 20px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
+    .brand h1{font-family:"Cormorant Garamond", serif; font-size:28px; letter-spacing:.2px; font-weight:700; margin:0; line-height:1}
+    .brand small{opacity:.9; display:block; font-size:11px; letter-spacing:.2em}
+    .nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0}
+    .nav a{color:var(--white); text-decoration:none; font-weight:500}
+    .nav a:hover{opacity:.92; text-decoration:underline}
+
+    /* Hero */
+    .hero{
+      background: var(--surface);
+      border-bottom:1px solid #dbe7e4;
+    }
+    .hero .wrap{max-width:1100px; margin:0 auto; padding:72px 20px 56px}
+    .eyebrow{color:#2a4f52; text-transform:uppercase; letter-spacing:.12em; font-size:12px; font-weight:700}
+    .hero h2{font-family:"Cormorant Garamond", serif; font-weight:700; margin:14px 0 10px; font-size: clamp(32px, 5vw, 64px); line-height:1.05; color:#1f2d2e}
+    .hero p{max-width:720px; font-size:20px; color:var(--muted)}
+
+    .cta{
+      display:inline-block; margin-top:22px; background:var(--teal-700); color:var(--white);
+      padding:14px 22px; border-radius:12px; font-weight:700; text-decoration:none; box-shadow:var(--shadow);
+      transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+    }
+    .cta:hover{transform:translateY(-1px); background:var(--teal-800)}
+
+    /* Sections */
+    section{padding:70px 20px}
+    .wrap{max-width:1100px; margin:0 auto}
+    h3.section-title{font-family:"Cormorant Garamond", serif; font-size:40px; line-height:1.1; margin:0 0 16px}
+    .lead{font-size:18px; color:var(--muted)}
+
+    /* Services */
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:24px; margin-top:26px}
+    .card{
+      background:var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding:26px 24px; border:1px solid #e7eeec;
+      display:flex; flex-direction:column; gap:14px; min-height:260px
+    }
+    .card h4{font-size:22px; margin:0}
+    .card p{margin:0; color:var(--muted)}
+    .icon{
+      width:48px; height:48px; display:inline-flex; align-items:center; justify-content:center;
+      border-radius:12px; background:var(--surface); color:var(--teal-800); border:1px solid #dbe7e4
+    }
+
+    /* Contact */
+    .contact{
+      background: linear-gradient(180deg, #f7fbfa, #eef4f1);
+      border-top:1px solid #e1ece9
+    }
+    form{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px}
+    label{font-weight:600; font-size:14px}
+    input, textarea{
+      margin-top:6px; width:100%; padding:12px 14px; border-radius:12px; border:1px solid #d7e5e2; background:#fff;
+      font: inherit; color:var(--ink)
+    }
+    textarea{grid-column:1/-1; min-height:120px}
+    .actions{grid-column:1/-1}
+    .btn{appearance:none; border:0; background:var(--teal-700); color:#fff; padding:12px 18px; border-radius:12px; font-weight:700; cursor:pointer}
+    .btn:hover{background:var(--teal-800)}
+
+    /* Footer */
+    footer{padding:28px 20px; background:#e9f1ee; color:#284549; border-top:1px solid #d6e4e1}
+    footer .wrap{max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:10px}
+    footer small{opacity:.8}
+
+    @media (max-width: 900px){
+      .cards{grid-template-columns: 1fr 1fr}
+      form{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .nav ul{gap:18px}
+      .brand h1{font-size:24px}
+      .cards{grid-template-columns: 1fr}
+      .hero .wrap{padding:58px 20px 44px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#home">
+        <span aria-hidden="true" class="logo" style="display:inline-flex">
+          <!-- Simple loon mark -->
+          <svg width="48" height="34" viewBox="0 0 64 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M11 20c6 0 11-7 15-7 3 0 4 3 6 5 2 2 6 3 12 3 13 0 18 7 18 12H2c0-6 4-13 9-13z" fill="#e6f1ef"/>
+            <path d="M20 9.5c3.2-1.8 6.5-2.2 8.6-.7 2.4 1.7 1.9 5.3.7 7.3 3.7 3.8 8.7 5.3 15.7 5.3C54 21.4 61 27 61 33H3c0-7.3 6.8-13 16.3-13.5 2.7-.1 6.2-4.7.7-10z" fill="#163b3f"/>
+            <circle cx="33.5" cy="8.5" r="1.2" fill="#fff"/>
+          </svg>
+        </span>
+        <span>
+          <h1>LoonSong</h1>
+          <small>Consulting & Strategy</small>
+        </span>
+      </a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="home">
+    <div class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Expert Consulting</span>
+        <h2>Solutions for Your<br/>Business</h2>
+        <p>We provide expert consulting to help you achieve your goals. From strategy to operations, our team partners closely with you to unlock growth and lasting results.</p>
+        <a class="cta" href="#contact">Get Started</a>
+      </div>
+    </div>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <h3 id="about-title" class="section-title">About Us</h3>
+        <p class="lead">We are a consulting firm dedicated to delivering personalized solutions tailored to the unique needs of each client. Our experienced team works closely with you to drive success through insight, collaboration, and measurable outcomes.</p>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <h3 id="services-title" class="section-title">Our Services</h3>
+        <div class="cards">
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 17h4v3H4v-3Zm6-6h4v9h-4V11Zm6-7h4v16h-4V4Z" fill="currentColor"/></svg>
+            </span>
+            <h4>Strategy Consulting</h4>
+            <p>Develop effective strategies to drive business growth and competitive advantage.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a1 1 0 0 1 1 1v1.07A6 6 0 0 1 17 11a1 1 0 1 1-2 0 4 4 0 0 0-4-4H6.5a2.5 2.5 0 0 0 0 5H9a3 3 0 1 1 0 6H7a1 1 0 1 1 0-2h2a1 1 0 1 0 0-2H6.5a4.5 4.5 0 0 1 0-9H11a1 1 0 0 1 1 1Z" fill="currentColor"/></svg>
+            </span>
+            <h4>Financial Advisory</h4>
+            <p>Receive expert financial guidance to strengthen performance and support decisions.</p>
+          </article>
+          <article class="card">
+            <span class="icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 4h4v4H5V4Zm10 0h4v4h-4V4ZM5 14h4v6H5v-6Zm10 0h4v6h-4v-6ZM5 10h4v3H5v-3Zm10 0h4v3h-4v-3Z" fill="currentColor"/></svg>
+            </span>
+            <h4>Organizational Development</h4>
+            <p>Enhance your operations, efficiency, and effectiveness with people-first practices.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h3 id="contact-title" class="section-title">Contact</h3>
+        <p class="lead">Tell us about your project and we’ll reach out within one business day.</p>
+        <form name="contact" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch shortly.'); this.reset();">
+          <div>
+            <label for="name">Name
+              <input id="name" name="name" autocomplete="name" required>
+            </label>
+          </div>
+          <div>
+            <label for="email">Email
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </label>
+          </div>
+          <div>
+            <label for="company">Company
+              <input id="company" name="company" autocomplete="organization">
+            </label>
+          </div>
+          <div>
+            <label for="phone">Phone
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </label>
+          </div>
+          <label for="message">How can we help?
+            <textarea id="message" name="message" placeholder="Briefly describe your goals and timeline"></textarea>
+          </label>
+          <div class="actions">
+            <button class="btn" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex;align-items:center;gap:10px">
+        <strong>LoonSong</strong>
+        <span aria-hidden="true" style="opacity:.5">•</span>
+        <small>© <span id="yr"></span> All rights reserved.</small>
+      </div>
+      <small><a href="#home" style="color:inherit; text-decoration:none">Back to top ↑</a></small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
